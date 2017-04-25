@@ -1,0 +1,41 @@
+@import 'scss/mixins';
+@import 'scss/vars';
+@import 'scss/reset';
+
+// Custom defaults
+* {
+  @include css(box-sizing, border-box);
+  font-family: sans-serif;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.td { display: table-cell; }
+.table { display: table; }
+.vt { vertical-align: top; }
+.vm { vertical-align: middle; }
+
+.alignleft {
+  float: left;
+}
+
+.alignright {
+  float: right;
+}
+
+.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+
+img {
+  width: auto;
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1450px;
+  width: 100%;
+  margin: 0 auto;
+}
