@@ -3,7 +3,7 @@
 // Enqueue Custom Scripts
 function custom_scripts() {
   wp_enqueue_script( 'jq-link', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js', array(), null, true );
-	wp_enqueue_script( 'site-script', get_stylesheet_directory_uri() . '/js/site.js', array(), '0.0.1', true );
+	wp_enqueue_script( 'site-script', get_stylesheet_directory_uri() . '/js/site.js', array(), filemtime( get_stylesheet_directory() . '/js/site.js' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'custom_scripts' );
 
@@ -16,18 +16,19 @@ add_action( 'wp_enqueue_scripts', 'custom_styles' );
 // SVG Shortcode
 function get_svg( $atts, $content = null ) {
 	$a = shortcode_atts( array(
-		'img' 			=> ''
+		'src' 			=> ''
 	), $atts );
 
-	$img_path = esc_attr($atts['img']);
+	$img_path = esc_attr($atts['src']);
 	$ctx = stream_context_create(array('http'=>
 	    array(
 	        'timeout' => 30,
 	    )
 	));
-	return file_get_contents( get_stylesheet_directory() . '/images/svg/' . $img_path);
+	return file_get_contents( get_stylesheet_directory() . '/images/svg/' . $img_path . '.svg');
 }
 add_shortcode('svg', 'get_svg');
+// [svg src="filename"]
 
 
 // Enable Thumbnails
@@ -35,7 +36,7 @@ add_theme_support( 'post-thumbnails' );
 
 // Init Menus
 register_nav_menus( array(
-	'Main Navigation' => 'Main menu navigation',
+	'Main Navigation' => 'Main Menu',
 ) );
 
 
