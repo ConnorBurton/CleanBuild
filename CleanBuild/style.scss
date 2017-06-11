@@ -22,6 +22,16 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.post-edit-link {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 1;
+  padding: 15px 25px;
+  color: #fff;
+  background: $col-grey;
+}
+
 .td { display: table-cell; }
 .table { display: table; }
 .vt { vertical-align: top; }

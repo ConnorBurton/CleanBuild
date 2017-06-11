@@ -9,10 +9,12 @@
 		<?php wp_head(); ?>
 	</head>
 
+	<?php edit_post_link(); ?>
+
 	<body <?php body_class(); ?> >
 
 		<div id="container">
 
 			<header class="main-header">
-
+				<?php wp_nav_menu(array('menu' => 'Main Menu')); ?>
 			</header>
