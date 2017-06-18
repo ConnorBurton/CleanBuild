@@ -1,21 +1,10 @@
-
 <?php get_header(); ?>
 
-	<div id="content">
-
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-		<h1 class="page-title"><?php the_title(); ?></h1>
-
-		<?php the_content(); ?>
-
-	<?php endwhile; else : ?>
-			<article id="post-not-found">
-				<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
-			</article>
-	<?php endif; ?>
-
+<div class="main-content">
+	<div class="container">
+		<h1>404 Page not found</h1>
+		<p>We couldn't find the page you were looking for. Please use the links in the header to navigate throughout the site. If you still can't find what you're looking for then please contact us today.</p>
 	</div>
-
+</div>
 
 <?php get_footer(); ?>

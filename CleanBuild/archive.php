@@ -1,21 +1,29 @@
-
 <?php get_header(); ?>
 
-	<div id="content">
+<div class="main-content">
+  <div class="container">
+		<h1>News</h1>
+		<p>Browse our latest news stories below.  Find out more about industry trends, product news, and the best ways to add style, comfort, and value to your property.  Discover more about how Majestic Designs work and gain inspiration for your own home improvement plans.</p>
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+		<div class="posts-container">
+				<?php while ( have_posts() ) : the_post(); ?>
+					<a href="<?php the_permalink(); ?>" title="Read more - <?php the_title(); ?>">
+						<div class="post-image">
+							<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+						</div>
+						<div class="post-block">
+							<h2><?php the_title(); ?></h2>
+							<?php the_excerpt(); ?>
+						</div>
+					</a>
+				<?php endwhile; ?>
 
-		<h1 class="page-title"><?php the_title(); ?></h1>
-
-		<?php the_content(); ?>
-
-	<?php endwhile; else : ?>
-			<article id="post-not-found">
-				<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
-			</article>
-	<?php endif; ?>
-
+				<div class="blog-footer">
+					<div class="nav-arrow nav-right"><?php previous_posts_link( 'Newer posts' ); ?></div>
+					<div class="nav-arrow nav-left"><?php next_posts_link( 'Older posts', '' ); ?></div>
+				</div>
+		</div>
 	</div>
-
+</div>
 
 <?php get_footer(); ?>
