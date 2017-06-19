@@ -3,7 +3,7 @@
 // Enqueue Custom Scripts
 function custom_scripts() {
   wp_enqueue_script( 'jq-link', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js', array(), null, true );
-  wp_enqueue_script( 'fa-link', 'https://use.fontawesome.com/XXXXXXXXXX.js', array(), null, true );
+  wp_enqueue_script( 'fa-link', 'https://use.fontawesome.com/XXXXXXXXXXXX.js', array(), null, true );
 	wp_enqueue_script( 'site-script', get_stylesheet_directory_uri() . '/js/site.js', array(), filemtime( get_stylesheet_directory() . '/js/site.js' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'custom_scripts' );
@@ -126,7 +126,7 @@ add_shortcode( 'fax', 'company_fax_number_func' );
 
 function company_address_func( $atts ){
   $html .= '<li>' . get_field('company_name', 'company') . '</li>';
-  while ( have_rows('company_address','options') ) : the_row();
+  while ( have_rows('company_address','company') ) : the_row();
     $html .= '<li>' . get_sub_field('address_line') . '</li>';
   endwhile;
 
@@ -137,7 +137,7 @@ add_shortcode( 'address', 'company_address_func' );
 
 function company_social_func( $atts ){
 
-  while ( have_rows('social_links','options') ) : the_row();
+  while ( have_rows('social_links','company') ) : the_row();
     $html .= '<a href="'. get_sub_field('social_link') .'" rel="nofollow" target="_blank">' . get_sub_field('icon') . '</a>';
   endwhile;
 

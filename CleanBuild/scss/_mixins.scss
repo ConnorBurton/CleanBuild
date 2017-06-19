@@ -5,25 +5,25 @@
      }
 }
 
-@mixin maxw($maxWidth) {
+@mixin max-width($maxWidth) {
     @media only screen and (max-width: $maxWidth) {
         @content;
     }
 }
 
-@mixin minw($minWidth) {
+@mixin min-width($minWidth) {
     @media only screen and (min-width: $minWidth) {
         @content;
     }
 }
 
-@mixin maxh($maxHeight) {
+@mixin max-height($maxHeight) {
     @media only screen and (max-height: $maxHeight) {
         @content;
     }
 }
 
-@mixin minh($minHeight) {
+@mixin min-height($minHeight) {
     @media only screen and (min-height: $minHeight) {
         @content;
     }
