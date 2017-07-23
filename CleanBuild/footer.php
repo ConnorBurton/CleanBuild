@@ -27,7 +27,7 @@
 				</div>
 				<div class="bottom-footer">
 					<div class="container">
-						<p>&copy; Copyright <?php echo date('Y'); ?> <?php echo do_shortcode('[company-name]'); ?> <span>|</span> <a href="/terms-conditions" title="View the sites terms and conditions">Website terms and privacy policy</a> <span>|</span> <a href="http://www.purplexmarketing.com/" title="Website designed and built by Purplex Marketing" target="_blank">Website by <img src="/wp-content/themes/CleanBuild/img/graphics/plx.png" alt="Purplex Marketing"></a></p>
+						<p>&copy; Copyright <?php echo date('Y'); ?> <?php echo do_shortcode('[company-name]'); ?> <span>|</span> <a href="/terms-conditions" title="View the sites terms and conditions">Website terms and privacy policy</a></p>
 					</div>
 				</div>
 			</footer>
