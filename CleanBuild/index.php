@@ -3,7 +3,7 @@
 <div class="main-content">
   <div class="container">
 		<h1>News</h1>
-		<p>Browse our latest news stories below.  Find out more about industry trends, product news, and the best ways to add style, comfort, and value to your property.  Discover more about how Majestic Designs work and gain inspiration for your own home improvement plans.</p>
+		<p>Browse our latest news stories below.</p>
 
 		<div class="posts-container">
 				<?php while ( have_posts() ) : the_post(); ?>
