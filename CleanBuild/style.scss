@@ -1,8 +1,6 @@
 /*!
 Theme Name: Clean Build
 Theme URI: https://github.com/ConnorBurton/CleanBuild
-Author: Connor Burton
-Author URI: http://connorburton.uk/
 Description: A blank Wordpress boilerplate theme to make developing Wordpress themes quicker & easier.
 Version: 0.1
 License: GNU General Public License v2 or later
@@ -12,6 +10,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @import 'scss/mixins';
 @import 'scss/vars';
 @import 'scss/reset';
+@import 'scss/vendor/slick';
+@import 'scss/vendor/fancybox';
 
 // Custom defaults
 * {
