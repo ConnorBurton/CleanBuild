@@ -20,7 +20,7 @@
 				<div class="container table">
 					<div class="logo td">
 						<a href="/" title="Return to the homepage">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/graphics/logo.png" alt="Site Logo">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/graphics/logo.png" alt="Site Logo">
 						</a>
 					</div>
 					<div class="desk-menu td">
