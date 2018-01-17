@@ -148,9 +148,7 @@ function company_social_func( $atts ){
 
 		if($icon_type == 'fa-') {
 			$html .= '<a href="'. $link .'" rel="nofollow" target="_blank"><i class="fa ' . $icon . '" aria-hidden="true"></i></a>';
-		} else if($icon_type == 'htt') {
-			$html .= '<a href="'. $link .'" rel="nofollow" target="_blank"><img src="' . $icon . '"></a>';
-		} else if($icon_type == '/wp') {
+		} else if($icon_type == 'htt' || $icon_type == '/wp') {
 			$html .= '<a href="'. $link .'" rel="nofollow" target="_blank"><img src="' . $icon . '"></a>';
 		} else {
 			$html .= '<a href="'. $link .'" rel="nofollow" target="_blank">' . $icon . '</a>';
