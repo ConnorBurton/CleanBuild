@@ -103,6 +103,7 @@ function company_phone_number_func( $atts ){
 }
 add_shortcode( 'phone', 'company_phone_number_func' );
 
+
 // COMPANY FAX SHORTCODE
 function company_fax_number_func( $atts ){
 	return get_field('company_fax', 'company');
@@ -120,6 +121,7 @@ function company_address_func( $atts ){
 	$row = esc_attr($a['row']);
 	$name = esc_attr($a['include-name']);
 	$counter = 0;
+	$html = '';
 
 	while ( have_rows('company_address', 'company') ) : the_row();
 		$counter++;
@@ -138,14 +140,14 @@ function company_address_func( $atts ){
 }
 add_shortcode( 'address', 'company_address_func' );
 
+
 // SOCIAL LINKS SHORTCODE
 function company_social_func( $atts ){
-
+	$html = '';
   while ( have_rows('social_links','company') ) : the_row();
 		$link = get_sub_field('social_link');
 		$icon = get_sub_field('icon');
 		$icon_type = substr($icon, 0, 3);
-
 		if($icon_type == 'fa-') {
 			$html .= '<a href="'. $link .'" rel="nofollow" target="_blank"><i class="fa ' . $icon . '" aria-hidden="true"></i></a>';
 		} else if($icon_type == 'htt' || $icon_type == '/wp') {
