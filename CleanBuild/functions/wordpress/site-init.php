@@ -8,7 +8,6 @@ register_nav_menus( array(
 	'Main Navigation' => 'Main Menu',
 ) );
 
-
 // INITIATE SIDEBARS
 add_action( 'widgets_init', 'theme_slug_widgets_init' );
 function theme_slug_widgets_init() {

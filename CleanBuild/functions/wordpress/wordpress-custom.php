@@ -27,4 +27,11 @@ function meks_disable_srcset( $sources ) {
 }
 add_filter( 'wp_calculate_image_srcset', 'meks_disable_srcset' );
 
+
+// CUSTOM EXCERPT LENGTH
+function wpfme_custom_excerpt_length( $length ) {
+	return 30;
+}
+add_filter( 'excerpt_length', 'wpfme_custom_excerpt_length');
+
 ?>
