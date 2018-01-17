@@ -1,11 +1,6 @@
 <?php
 
-
-// Hides the admin bar
-add_filter('show_admin_bar', '__return_false');
-
-
-// SVG Shortcode
+// SVG SHORTCODE
 function get_svg( $atts, $content = null ) {
 	$a = shortcode_atts( array(
 		'src' 			=> ''
@@ -20,17 +15,10 @@ function get_svg( $atts, $content = null ) {
 	return file_get_contents( get_stylesheet_directory() . '/images/svg/' . $img_path . '.svg');
 }
 add_shortcode('svg', 'get_svg');
+
+// Requires the svg to be in folder defined on line 15
+// EXAMPLE SHORTCODE:
 // [svg src="filename"]
-
-
-
-
-// Custom Excerpt Function
-function replace_excerpt($content) {
-  $post = get_post();
-  return str_replace('[&hellip;]', '... <a href="'. get_permalink($post->ID) . '">Read more</span>', $content);
-}
-add_filter('the_excerpt', 'replace_excerpt');
 
 
 ?>
