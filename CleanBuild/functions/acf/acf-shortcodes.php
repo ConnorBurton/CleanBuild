@@ -33,6 +33,7 @@ function company_email_address_func( $atts ){
 	$quick = esc_attr($a['quick-link']);
 	$counter = 0;
 	$company = get_field('company_name', 'company');
+	$html = '';
 
 	while ( have_rows('company_email_address', 'company') ) : the_row();
 		$counter++;
@@ -40,17 +41,18 @@ function company_email_address_func( $atts ){
 
 		if($row == $counter) {
 			if($quick == 'true') {
-				return '<a href="mailto:' . $email . '?subject='. $company .' (Website enquiry)">'. $email .'</a>';
+				$html .= '<a href="mailto:' . $email . '?subject='. $company .' (Website enquiry)">'. $email .'</a>';
 			} else {
 				if ($link == 'true'){
-					return 'mailto:' . $email . '?subject='. $company .' (Website enquiry)';
+					$html .= 'mailto:' . $email . '?subject='. $company .' (Website enquiry)';
 				} else {
-					return $email;
+					$html .= $email;
 			  }
 			}
 		}
 
 	endwhile;
+	return $html;
 }
 add_shortcode( 'email', 'company_email_address_func' );
 
@@ -67,6 +69,7 @@ function company_phone_number_func( $atts ){
 	$row = esc_attr($a['row']);
 	$quick = esc_attr($a['quick-link']);
 	$counter = 0;
+	$html = '';
 
 	while ( have_rows('company_phone_number', 'company') ) : the_row();
 		$counter++;
@@ -83,17 +86,18 @@ function company_phone_number_func( $atts ){
 
 		if($row == $counter) {
 			if($quick == 'true') {
-				return '<a href="tel:' . $number_link . '">'. $number .'</a>';
+				$html .= '<a href="tel:' . $number_link . '">'. $number .'</a>';
 			} else {
 				if ($link == 'true'){
-					return 'tel:' . $number_link;
+					$html .= 'tel:' . $number_link;
 				} else {
-					return $number;
+					$html .= $number;
 				}
 			}
 		}
 	endwhile;
 
+	return $html;
 
 	if ($link == 'true'){
 		return $number_link;
