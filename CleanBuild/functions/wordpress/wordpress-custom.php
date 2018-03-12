@@ -62,4 +62,11 @@ add_filter('previous_post_link', 'post_link_attributes');
 
 // CUSTOM IMAGE SIZES
 add_image_size( 'small-on-page', 150, 60 );
+
+
+// MOVE YOAST META BOX TO THE BOTTOM
+function yoasttobottom() {
+	return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
 ?>
