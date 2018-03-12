@@ -1,6 +1,6 @@
 <?php
   if(get_field('custom_disabled_button_class', 'post_sections')) {
-    $disabled_class = 'class="'. get_field('custom_disabled_button_class', 'posts_section') .'"';
+    $disabled_class = 'class="'. get_field('custom_disabled_button_class', 'post_sections') .'"';
   } else {
     $disabled_class = '';
   }
@@ -21,7 +21,7 @@
         <?php previous_post_link( '%link', 'Previous Post' ); ?>
       </div>
     <?php } else { ?>
-      <div class="nav-arrow nav-left" <?= $disabled_class; ?>><a>Previous Post</a></div>
+      <div class="nav-arrow nav-left"><a <?= $disabled_class; ?>>Previous Post</a></div>
     <?php } ?>
 
     <?php if(get_next_post_link()) { ?>
@@ -29,7 +29,7 @@
         <?php next_post_link( '%link', 'Next post' ); ?>
       </div>
     <?php } else { ?>
-      <div class="nav-arrow nav-right" <?= $disabled_class; ?>><a>Next Post</a></div>
+      <div class="nav-arrow nav-right"><a <?= $disabled_class; ?>>Next Post</a></div>
     <?php } ?>
   </div>
 </div>

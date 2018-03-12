@@ -22,17 +22,22 @@ add_filter('upload_mimes', 'cc_mime_types');
 
 
 // DISABLE SRCSET ON EMBEDDED IMAGES
-function meks_disable_srcset( $sources ) {
+function disable_srcset( $sources ) {
     return false;
 }
-add_filter( 'wp_calculate_image_srcset', 'meks_disable_srcset' );
+add_filter( 'wp_calculate_image_srcset', 'disable_srcset' );
 
 
 // CUSTOM EXCERPT LENGTH
-function wpfme_custom_excerpt_length( $length ) {
-	return 30;
+function custom_excerpt_length( $length ) {
+  if(get_field('custom_excerpt_length', 'post_sections')) {
+    $length = get_field('custom_excerpt_length', 'post_sections');
+  } else {
+    $length = 30;
+  }
+	return $length;
 }
-add_filter( 'excerpt_length', 'wpfme_custom_excerpt_length');
+add_filter( 'excerpt_length', 'custom_excerpt_length');
 
 
 // CUSTOM PREVIOUS / NEXT POST BUTTON CLASSES
