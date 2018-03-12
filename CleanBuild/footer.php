@@ -13,9 +13,8 @@
 						</div>
 						<div class="address td vt">
 							<h2>Get in touch</h2>
-							<ul class="address-details">
-								<?php echo do_shortcode('[address]'); ?>
-								<li class="space"></li>
+							<?php echo do_shortcode('[address container="true"]'); ?>
+							<ul class="contact-information">
 								<li><i class="fa fa-phone" aria-hidden="true"></i> <?php echo do_shortcode('[phone]'); ?></li>
 								<li><i class="fa fa-fax" aria-hidden="true"></i> <?php echo do_shortcode('[fax]'); ?></li>
 								<li><a href="<?php echo do_shortcode('[email link="true"]'); ?>"><i class="fa fa-envelope" aria-hidden="true"></i> <?php echo do_shortcode('[email]'); ?></a></li>
@@ -27,7 +26,7 @@
 				</div>
 				<div class="bottom-footer">
 					<div class="container">
-						<p>&copy; Copyright <?php echo date('Y'); ?> <?php echo do_shortcode('[company-name]'); ?> <span>|</span> <a href="/terms-conditions" title="View the sites terms and conditions">Website terms and privacy policy</a></p>
+						<p>&copy; Copyright <?php echo date('Y'); ?>  <?php echo do_shortcode('[company-name]'); ?> <span>|</span> Reg no. <?php echo do_shortcode('[reg-number]') ?> <span>|</span> <a href="/terms-conditions" title="View the sites terms and conditions">Website terms and privacy policy</a></p>
 					</div>
 				</div>
 			</footer>

@@ -1,29 +1,9 @@
 <?php get_header(); ?>
 
-<div class="main-content">
-  <div class="container">
-		<h1>News</h1>
-		<p>Browse our latest news stories below.</p>
+<?php include 'inc/header/banner-default.php'; ?>
 
-		<div class="posts-container">
-				<?php while ( have_posts() ) : the_post(); ?>
-					<a href="<?php the_permalink(); ?>" title="Read more - <?php the_title(); ?>">
-						<div class="post-image">
-							<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
-						</div>
-						<div class="post-block">
-							<h2><?php the_title(); ?></h2>
-							<?php the_excerpt(); ?>
-						</div>
-					</a>
-				<?php endwhile; ?>
+<?php include 'inc/content/posts-loop.php'; ?>
 
-				<div class="blog-footer">
-					<div class="nav-arrow nav-right"><?php previous_posts_link( 'Newer posts' ); ?></div>
-					<div class="nav-arrow nav-left"><?php next_posts_link( 'Older posts', '' ); ?></div>
-				</div>
-		</div>
-	</div>
-</div>
+<?php include 'inc/footer/blog-footer-overview.php'; ?>
 
 <?php get_footer(); ?>

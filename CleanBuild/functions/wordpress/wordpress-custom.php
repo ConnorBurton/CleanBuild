@@ -34,4 +34,27 @@ function wpfme_custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'wpfme_custom_excerpt_length');
 
+
+// CUSTOM PREVIOUS / NEXT POST BUTTON CLASSES
+function posts_link_attributes() {
+  if(get_field('custom_active_button_class', 'post_sections')) {
+    return 'class="'. get_field('custom_active_button_class', 'post_sections') .'"';
+  }
+}
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+
+
+function post_link_attributes($output) {
+    if(get_field('custom_active_button_class', 'post_sections')) {
+      $code = 'class="'. get_field('custom_active_button_class', 'post_sections') .'"';
+      return str_replace('<a href=', '<a '.$code.' href=', $output);
+    }
+}
+add_filter('next_post_link', 'post_link_attributes');
+add_filter('previous_post_link', 'post_link_attributes');
+
+
+// CUSTOM IMAGE SIZES
+add_image_size( 'small-on-page', 150, 60 );
 ?>
