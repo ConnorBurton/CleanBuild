@@ -2,9 +2,9 @@
 
 // DEQUEUE CUSTOM SCRIPTS
 function remove_default_js( ){
-    wp_dequeue_script( 'jquery');
+    // wp_dequeue_script( 'jquery');
     wp_dequeue_script( 'wp-embed');
-    wp_deregister_script( 'jquery');
+    // wp_deregister_script( 'jquery');
     wp_deregister_script( 'wp-embed');
 }
 add_filter( 'wp_enqueue_scripts', 'remove_default_js', 100 );
