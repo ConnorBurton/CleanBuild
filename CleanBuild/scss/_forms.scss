@@ -1,0 +1,28 @@
+input[type="text"],input[type="tel"],input[type="email"],select,textarea {
+	@include css(appearance,none);
+	width: 100%;
+	padding: 20px 30px;
+	border-radius: 0px;
+	border: 1px solid #000;
+	margin-bottom: 15px;
+	background: #fff;
+  outline: none;
+  resize: none;
+  @include css(transition, .3s ease);
+  &.wpcf7-not-valid {
+    border-color: $col-error;
+  }
+}
+
+.wpcf7 {
+  .wpcf7-not-valid-tip, br {
+    display: none;
+  }
+  p {
+    margin: 0;
+    &.input-title {
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+  }
+}
