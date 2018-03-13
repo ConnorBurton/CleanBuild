@@ -15,14 +15,99 @@ input[type="text"],input[type="tel"],input[type="email"],select,textarea {
 }
 
 .wpcf7 {
-  .wpcf7-not-valid-tip, br {
+  .wpcf7-not-valid-tip, br, .screen-reader-response {
     display: none;
   }
   p {
     margin: 0;
     &.input-title {
       font-weight: 600;
-      margin-bottom: 15px;
+      margin: 15px 0;
     }
   }
+}
+
+.wpcf7-checkbox, .wpcf7-radio {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 20px;
+	* {
+		cursor: pointer;
+	}
+}
+
+span.wpcf7-list-item {
+  display: inline-block;
+  margin-left: 0;
+  margin-right: 30px;
+  margin-bottom: 10px;
+  label {
+    display: block;
+    height: 35px;
+  }
+  input[type="checkbox"], input[type="radio"] {
+    display: none;
+
+    &:checked + .wpcf7-list-item-label::before {
+      background: $col-light-grey;
+    }
+  }
+  .wpcf7-list-item-label{
+    display: inline-block;
+    &:before {
+      content: '';
+			display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 10px;
+      vertical-align: middle;
+			cursor: pointer;
+			border: 1px solid $col-grey;
+      @include css(transition, .3s ease);
+			.wpcf7-radio & {
+				border-radius: 50px;
+			}
+    }
+  }
+}
+
+
+.split-inputs {
+	overflow: hidden;
+	span {
+		display: block;
+		width: calc(50% - 10px);
+		float: left;
+		@include max-width(720px) {
+			width: 100%;
+			float: none;
+		}
+		&:last-of-type {
+			float: right;
+			@include max-width(720px) {
+				float: none;
+			}
+		}
+	}
+}
+
+@include placeholder() {
+	font-weight: 600;
+	text-transform: capitalize;
+	opacity: 1;
+}
+
+.wpcf7-response-output {
+	padding: 15px 20px;
+	font-weight: 600;
+	color: #fff;
+	background: $col-warning;
+	display: none;
+	margin-top: 20px;
+	&.wpcf7-validation-errors {
+		background: $col-error;
+	}
+	&.wpcf7-mail-sent-ok {
+		background: $col-success;
+	}
 }
