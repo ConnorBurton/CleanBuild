@@ -128,12 +128,11 @@ function company_address_func( $atts ){
 	$container = esc_attr($a['container']);
 	$counter = 0;
 	$html = '';
-
+	if($container == 'true') {
+		$html .= '<ul class="address-list">';
+	}
 	while ( have_rows('company_address', 'company') ) : the_row();
 		$counter++;
-		if($container == 'true') {
-			$html .= '<ul class="address-list">';
-		}
 		if($row == $counter) {
 			if($name == 'true') {
 				$html .= '<li class="address-item address-name">' . get_field('company_name', 'company') . '</li>';
@@ -142,10 +141,10 @@ function company_address_func( $atts ){
 		    $html .= '<li class="address-item">' . get_sub_field('address_line') . '</li>';
 		  endwhile;
 		}
-		if($container == 'true') {
-			$html .= '</ul>';
-		}
 	endwhile;
+	if($container == 'true') {
+		$html .= '</ul>';
+	}
 
   return $html;
 
@@ -158,6 +157,7 @@ function company_social_func( $atts ){
 	$a = shortcode_atts( array(
 		'container' => 'false',
 	), $atts );
+	$container = esc_attr($a['container']);
 	$html = '';
 	if($container == 'true') {
 		$html .= '<div class="social-links">';
