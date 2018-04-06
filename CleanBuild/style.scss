@@ -148,6 +148,12 @@ h3 {
 
 p {
   margin-bottom: 20px;
+  a {
+    color: $col-blue;
+    &:hover {
+      color: lighten($col-blue, 5%);
+    }
+  }
 }
 
 ul, ol {
@@ -166,6 +172,19 @@ ol {
   .main-content & {
     list-style-type: decimal;
   }
+}
+
+b, strong {
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+span, i {
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
 }
 
 // header
