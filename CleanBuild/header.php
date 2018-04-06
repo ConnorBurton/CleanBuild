@@ -14,6 +14,9 @@
 
 	<body <?php body_class(); ?> >
 
+		<div class="mobile-menu"><?php wp_nav_menu(array('menu' => 'Main Menu', 'container' => false)); ?></div>
+		<div class="darkness"></div>
+
 		<div id="container">
 
 			<header class="main-header">
@@ -37,3 +40,5 @@
 
 				</div>
 			</header>
+
+			<div class="header-space"></div>

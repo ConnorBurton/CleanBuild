@@ -169,10 +169,18 @@ ol {
 }
 
 // header
+.header-space {
+  height: 90px;
+}
 
 .main-header {
   height: 90px;
-  background: lighten($col-light-grey, 3%);
+  background: $col-light-grey;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
   * {
     line-height: 90px;
   }
@@ -241,6 +249,71 @@ ol {
   }
   a,#mob-toggle {
     display: inline-block;
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 90px;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  padding: 20px 0;
+  overflow-y: scroll;
+  background: $col-light-grey;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  @include css(transform, translateX(400px));
+  @include max-width(600px) {
+    width: 100%;
+    @include css(transform, translateX(100%));
+  }
+
+  &.active {
+    @include max-width(980px) {
+      opacity: 1;
+      visibility: visible;
+      @include css(transform, translateX(0));
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      margin: 0;
+      a {
+        padding: 0 25px;
+        display: block;
+        line-height: 40px;
+      }
+      ul {
+        background: rgba(#000, 0.1);
+        li {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.darkness {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9;
+  background: rgba(#000, 0.75);
+  opacity: 0;
+  visibility: hidden;
+
+  &.active {
+    @include max-width(980px) {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }
 
