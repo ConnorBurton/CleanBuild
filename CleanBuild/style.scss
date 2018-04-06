@@ -189,9 +189,13 @@ ol {
 }
 
 .desk-menu {
+  @include max-width(980px) {
+    display: none;
+  }
   ul {
     width: 100%;
     text-align: right;
+    margin: 0;
     li {
       display: inline-block;
       margin-left: -6px;
@@ -213,7 +217,7 @@ ol {
         display: none;
         position: absolute;
         left: 0;
-        width: 200px;
+        width: 300px;
         background: $col-light-grey;
         text-align: left;
         li {
@@ -229,13 +233,39 @@ ol {
   }
 }
 
+.mobile-buttons {
+  display: none;
+  text-align: right;
+  @include max-width(980px) {
+    display: table-cell;
+  }
+  a,#mob-toggle {
+    display: inline-block;
+  }
+}
+
 
 // Content
 .main-content {
   padding: 60px 0;
 }
 
+
+// Map
+a[href^="http://maps.google.com/maps"],
+a[href^="https://maps.google.com/maps"],
+a[href^="https://www.google.com/maps"] {
+    display: none !important;
+}
+.gmnoprint:not(.gm-bundled-control) {
+    display: none;
+}
+.gm-bundled-control .gmnoprint {
+    display: block;
+}
+
 // Footer
+
 .footer {
   background: $col-light-grey;
   li,p,h3,span {
