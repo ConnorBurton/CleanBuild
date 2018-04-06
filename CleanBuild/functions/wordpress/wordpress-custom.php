@@ -69,4 +69,24 @@ function yoasttobottom() {
 	return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
+
+
+// DISABLE SRCSET ON EMBEDDED IMAGES
+function disable_srcset( $sources ) {
+  return false;
+}
+add_filter( 'wp_calculate_image_srcset', 'disable_srcset' );
+
+
+// HAS CHILDREN FUNCTION
+function has_children() {
+  global $post;
+  $children = get_pages( array( 'child_of' => $post->ID ) );
+  if( count( $children ) == 0 ) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 ?>
