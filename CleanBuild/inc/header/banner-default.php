@@ -3,6 +3,8 @@
     $title = 'Latest News';
   } else if(is_archive()) {
     $title = get_the_archive_title();
+  } else if(is_404()) {
+    $title = 'Error 404';
   } else {
     $title = get_the_title();
   }
