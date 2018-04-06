@@ -268,6 +268,9 @@ span, i {
   }
   a,#mob-toggle {
     display: inline-block;
+    cursor: pointer;
+    width: 50px;
+    text-align: center;
   }
 }
 
@@ -284,6 +287,7 @@ span, i {
   visibility: hidden;
   z-index: 10;
   @include css(transform, translateX(400px));
+  @include css(transition, .3s ease);
   @include max-width(600px) {
     width: 100%;
     @include css(transform, translateX(100%));
@@ -327,6 +331,7 @@ span, i {
   background: rgba(#000, 0.75);
   opacity: 0;
   visibility: hidden;
+  @include css(transition, .3s ease);
 
   &.active {
     @include max-width(980px) {
