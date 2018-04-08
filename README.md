@@ -39,7 +39,7 @@ Returns the __Company Address__ field. It returns each row in to a separate ```l
 ```php
 <?php echo do_shortcode('[address]'); ?>
 ```
-##### Options
+
 Option | Type | Default | Description
 --- | --- | --- | ---
 row | int | 1 | Selects which repeater row phone number will be returned
@@ -51,7 +51,7 @@ Returns the __Company Email Address__ field in plaintext.
 ```php
 <?php echo do_shortcode('[email]'); ?>
 ```
-##### Options
+
 Option | Type | Default | Description
 --- | --- | --- | ---
 row | int | 1 | Selects which repeater row of the __Email Address__ field will be returned
@@ -63,7 +63,7 @@ Returns the __Company Phone Number__ field in plaintext.
 ```php
 <?php echo do_shortcode('[phone]'); ?>
 ```
-##### Options
+
 Option | Type | Default | Description
 --- | --- | --- | ---
 row | int | 1 | Selects which repeater row of the __Phone Number__ field will be returned
@@ -75,7 +75,7 @@ Returns the __Company Social Links__ field. It returns each row in to a separate
 ```php
 <?php echo do_shortcode('[social]'); ?>
 ```
-##### Options
+
 Option | Type | Default | Description
 --- | --- | --- | ---
 container | boolean | false | Will wrap the returned social links in a ```div``` with the class of ```social-links```
