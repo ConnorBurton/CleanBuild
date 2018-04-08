@@ -193,24 +193,20 @@ span, i {
 }
 
 .main-header {
-  height: 90px;
   background: $col-light-grey;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  * {
-    line-height: 90px;
-  }
 }
 
 .logo {
-  width: 230px;
   a {
     display: block;
     img {
       vertical-align: middle;
+      width: 200px;
     }
   }
 }
@@ -225,12 +221,14 @@ span, i {
     margin: 0;
     li {
       display: inline-block;
+      margin: 0;
       margin-left: -6px;
       position: relative;
       a {
         display: block;
         padding: 0 20px;
         color: $col-grey;
+        line-height: 90px;
         &:hover {
           color: $col-blue;
         }
@@ -270,6 +268,7 @@ span, i {
     display: inline-block;
     cursor: pointer;
     width: 50px;
+    line-height: 90px;
     text-align: center;
   }
 }
@@ -313,6 +312,23 @@ span, i {
       }
       ul {
         background: rgba(#000, 0.1);
+        position: relative;
+        &.active {
+          &:before {
+            content: '\f068';
+          }
+        }
+        &:before {
+          content: '\f067';
+          font-family: 'FontAwesome';
+          position: absolute;
+          right: 0;
+          top: -45px;
+          width: 45px;
+          line-height: 45px;
+          text-align: center;
+          cursor: pointer;
+        }
         li {
           display: none;
         }
