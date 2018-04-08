@@ -2,13 +2,17 @@
 # CleanBuild
 A clean WordPress boilerplate to make creating custom sites quicker & easier.
 
+__Table of contents__
+- [Required Plugins](#required-plugins)
+- [Included 3rd Party Libraries](#included-3rd-party-libraries)
+- [Company Detail Shortcodes](#company-detail-shortcodes)
 
 ### Required Plugins
 ACF is required to enable the custom shortcodes/options that the skeleton html includes.
  * Advanced Custom Fields Pro
 
 
-### Included 3rd party libraries
+### Included 3rd Party Libraries
 Theses libraries are enqueued in ``` functions/wordpress/site-enqueue.php ``` but are commented out by default.
 
  * Slick.js
@@ -19,6 +23,16 @@ Theses libraries are enqueued in ``` functions/wordpress/site-enqueue.php ``` bu
 
 ## Company Detail Shortcodes
 These are all of the shortcodes & their options that are generated using the __Company Details__ tab in the backend of WordPress.
+
+__Shortcodes__
+- [Company Address](#company-address)
+- [Company Email Address](#company-email-address)
+- [Company Phone Number](#company-phone-number)
+- [Company Social Links](#company-social-links)
+- [Company Name](#company-name)
+- [Company Fax Number](#company-fax-number)
+- [Company Registration Number](#company-registration-number)
+- [Company Opening Hours](#company-opening-hours)
 
 ### Company Address
 Returns the __Company Address__ field. It returns each row in to a separate ```li``` tag.
