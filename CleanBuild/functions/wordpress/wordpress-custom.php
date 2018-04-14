@@ -74,11 +74,7 @@ add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
 function has_children() {
   global $post;
   $children = get_pages( array( 'child_of' => $post->ID ) );
-  if( count( $children ) == 0 ) {
-    return false;
-  } else {
-    return true;
-  }
+  return $children ? true : false;
 }
 
 ?>
