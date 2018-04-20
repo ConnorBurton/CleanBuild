@@ -20,7 +20,6 @@ function cc_mime_types($mimes) {
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
-
 // DISABLE SRCSET ON EMBEDDED IMAGES
 function disable_srcset( $sources ) {
     return false;
@@ -69,13 +68,6 @@ function yoasttobottom() {
 	return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
-
-
-// DISABLE SRCSET ON EMBEDDED IMAGES
-function cb_disable_srcset( $sources ) {
-  return false;
-}
-add_filter( 'wp_calculate_image_srcset', 'cb_disable_srcset' );
 
 
 // HAS CHILDREN FUNCTION
