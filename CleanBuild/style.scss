@@ -30,7 +30,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   position: fixed;
   bottom: 30px;
   left: 30px;
-  z-index: 1;
+  z-index: 10;
   padding: 15px 25px;
   color: #fff;
   background: $col-grey;
@@ -458,5 +458,24 @@ a[href^="https://www.google.com/maps"] {
     img {
       vertical-align: middle;
     }
+  }
+}
+
+// Seasonal Opening Hours
+.seasonal-opening-hours {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: 15px 0;
+  background: $col-black;
+  p {
+    margin: 0;
+    font-size: 16px;
+    display: inline-block;
+    color: #fff;
+    line-height: 1;
+    margin-right: 15px;
   }
 }

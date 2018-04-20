@@ -12,7 +12,6 @@ if( function_exists('acf_add_options_page') ) {
   $company_details_args = array(
     'page_title' => 'Company Details',
     'menu_title' => 'Company Details',
-    'icon_url' => 'dashicons-id',
     'parent_slug' 	=> 'theme_options',
     'post_id' => 'company',
   );
@@ -20,7 +19,6 @@ if( function_exists('acf_add_options_page') ) {
   $footer_sections_args = array(
     'page_title' => 'Footer Sections',
     'menu_title' => 'Footer Sections',
-    'icon_url' => 'dashicons-editor-kitchensink',
     'parent_slug' 	=> 'theme_options',
     'post_id' => 'footer',
   );
@@ -28,15 +26,22 @@ if( function_exists('acf_add_options_page') ) {
   $post_sections_args = array(
     'page_title' => 'Post Sections',
     'menu_title' => 'Post Sections',
-    'icon_url' => 'dashicons-welcome-write-blog',
     'parent_slug' 	=> 'theme_options',
     'post_id' => 'post_sections',
+  );
+
+  $seasonal_opening_hours_args = array(
+    'page_title' => 'Seasonal Hours',
+    'menu_title' => 'Seasonal Hours',
+    'parent_slug' 	=> 'theme_options',
+    'post_id' => 'seasonal',
   );
 
   acf_add_options_page($theme_options_args);
   acf_add_options_page($company_details_args);
   acf_add_options_sub_page($footer_sections_args);
   acf_add_options_sub_page($post_sections_args);
+  acf_add_options_sub_page($seasonal_opening_hours_args);
 }
 
 ?>

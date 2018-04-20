@@ -37,6 +37,12 @@
 
 		<?php wp_footer(); ?>
 
+		<?php
+			if(get_field('seasonal_opening_hours', 'seasonal')) {
+				include 'inc/footer/seasonal-opening-hours.php';
+			}
+		?>
+
 	</body>
 
 </html>
