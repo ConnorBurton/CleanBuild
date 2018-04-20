@@ -29,6 +29,12 @@
 
 		</div> <?php // closing #container ?>
 
+		<?php
+			if( wp_script_is( 'backstretch-script', 'enqueued' ) ) {
+				include 'inc/footer/backstretch-script.php';
+			}
+		?>
+
 		<?php wp_footer(); ?>
 
 	</body>

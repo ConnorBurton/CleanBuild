@@ -357,6 +357,31 @@ span, i {
   }
 }
 
+// Banners
+.banner {
+  position: relative;
+  overflow: hidden;
+  .slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+  }
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.banner.default {
+  padding: 50px 0;
+  h1 {
+    margin: 0;
+  }
+}
+
 
 // Content
 .main-content {

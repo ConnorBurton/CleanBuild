@@ -15,4 +15,5 @@
     <?php if ( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb('<p id="breadcrumbs">','</p>'); } ?>
     <h1><?= $title; ?></h1>
   </div>
+  <div class="slider"></div>
 </div>
