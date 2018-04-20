@@ -56,10 +56,20 @@ $(document).ready(function(){
   var siteLazyLoad = new LazyLoad({
     elements_selector: ".lazy"
   });
-  
+
   // Updates the lazy load when a tab is clicked
   $('.tabs-list li').click(function(){
     siteLazyLoad.update();
   });
+
+});
+
+$(window).on('load scroll resize', function(){
+
+  // Get the distance the window has scrolled
+  var wScroll = $(window).scrollTop();
+
+  // Parallax scrolling for the banner slider
+  $('.slider.parallax').css({'transform': 'translate3d(0,' + wScroll * +0.5 + 'px,0)'});
 
 });
