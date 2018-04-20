@@ -70,11 +70,23 @@ function yoasttobottom() {
 }
 add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
 
+
+// DISABLE SRCSET ON EMBEDDED IMAGES
+function cb_disable_srcset( $sources ) {
+  return false;
+}
+add_filter( 'wp_calculate_image_srcset', 'cb_disable_srcset' );
+
+
 // HAS CHILDREN FUNCTION
 function has_children() {
   global $post;
   $children = get_pages( array( 'child_of' => $post->ID ) );
-  return $children ? true : false;
+  if( count( $children ) == 0 ) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 ?>
