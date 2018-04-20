@@ -38,6 +38,10 @@
 		<?php wp_footer(); ?>
 
 		<?php
+			if( wp_script_is( 'gmap-link', 'enqueued' ) ) {
+				include 'inc/footer/map-script.php';
+			}
+
 			if(get_field('seasonal_opening_hours', 'seasonal')) {
 				include 'inc/footer/seasonal-opening-hours.php';
 			}

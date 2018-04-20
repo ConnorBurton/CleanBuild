@@ -7,6 +7,7 @@ function custom_scripts() {
   // wp_enqueue_script( 'slick-link', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js', array(), null, true );
   // wp_enqueue_script( 'backstretch-script', get_stylesheet_directory_uri() . '/js/vendor/backstretch.min.js', array(), null, true );
   // wp_enqueue_script( 'fancybox-script', get_stylesheet_directory_uri() . '/js/vendor/fancybox.min.js', array(), null, true );
+  // wp_enqueue_script( 'gmap-link', 'https://maps.googleapis.com/maps/api/js?key={API KEY}', array(), null, true );
   wp_enqueue_script( 'lazy-load', 'https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/8.7.0/lazyload.min.js', array(), null, true );
 	wp_enqueue_script( 'site-script', get_stylesheet_directory_uri() . '/js/site.js', array(), filemtime( get_stylesheet_directory() . '/js/site.js' ), true );
 }
