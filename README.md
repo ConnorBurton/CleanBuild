@@ -103,3 +103,7 @@ Returns the __Company Opening Hours__ field in plaintext.
 ```php
 <?php echo do_shortcode('[opening-hours]'); ?>
 ```
+
+Option | Type | Default | Description
+--- | --- | --- | ---
+container | boolean | false | Will wrap the returned opening times in a ```div``` with the class of ```opening-hours```
