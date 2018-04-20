@@ -35,7 +35,7 @@ $(document).ready(function(){
     $("#"+tab_id).addClass('current');
   });
 
-  // Tab P toggle 
+  // Tab P toggle
   $('p.toggle-tab').click(function(){
     var tab_id = $(this).attr('data-tab');
     if($(this).hasClass('current')) {
@@ -50,6 +50,16 @@ $(document).ready(function(){
         scrollTop: $("#"+tab_id).offset().top - 160
       }, 250);
     }
+  });
+
+  // Run lazy load on all elements with the class of 'lazy'
+  var siteLazyLoad = new LazyLoad({
+    elements_selector: ".lazy"
+  });
+  
+  // Updates the lazy load when a tab is clicked
+  $('.tabs-list li').click(function(){
+    siteLazyLoad.update();
   });
 
 });
