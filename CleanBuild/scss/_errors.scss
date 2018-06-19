@@ -1,0 +1,18 @@
+//scss compiler error styles
+.scss_errors {
+position: fixed;
+z-index: 11;
+width: 100%;
+padding: 25px;
+background: $col-grey;
+	h6 {
+		font-size: 35px	
+	}
+	h6, p, em {
+		color:white;
+		white-space: pre-wrap
+	}
+	em {
+		font-family: monospace
+	}	
+}
