@@ -395,6 +395,7 @@ a[href^="https://maps.google.com/maps"],
 a[href^="https://www.google.com/maps"] {
     display: none !important;
 }
+//remove or comment this out if you use map markers.
 .gmnoprint:not(.gm-bundled-control) {
     display: none;
 }
