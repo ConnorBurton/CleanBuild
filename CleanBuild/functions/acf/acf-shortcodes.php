@@ -6,6 +6,34 @@ function company_name_func( $atts ){
 }
 add_shortcode( 'company-name', 'company_name_func' );
 
+function shortcode_button_script()
+{
+    if(wp_script_is("quicktags"))
+    {
+		$buttons = array( // Add to this array to add buttons for different shortcodes. Don't forget to create an appropriate callback
+				array(
+					'id'        		=>   'company_name_shortcode', // Used as part of the ID for the button
+					'label' 			=>   'Company Name', // The label of the button
+					'callback'			=>   'company_button_callback', // The callback used for inserting the shortcode for this button
+				),
+		);
+        ?>
+            <script type="text/javascript">
+
+				<?php foreach($buttons as $button){
+					$addButton  = "QTags.addButton('" . $button['id'] . "', '" . $button['label'] . "', " . $button['callback'] . ");";
+					echo $addButton;
+				} ?>
+
+                function company_button_callback(){
+                    QTags.insertContent("[company-name]");
+                }
+            </script>
+        <?php
+    }
+}
+add_action("admin_print_footer_scripts", "shortcode_button_script");
+
 
 // COMPANY REG NUMBER SHORTCODE
 function company_reg_func( $atts ){
