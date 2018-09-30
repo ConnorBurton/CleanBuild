@@ -16,17 +16,17 @@ add_shortcode( 'reg-number', 'company_reg_func' );
 // COMPANY OPENING HOURS SHORTCODE
 function company_opening_hours_func( $atts ){
 	$a = shortcode_atts( array(
-		'container' => 'false',
+		'container' => false,
 	), $atts );
 	$container = esc_attr($a['container']);
 	$html = '';
-	if($container == 'true') {
+	if($container === true) {
 		$html .= '<div class="opening-hours">';
 	}
   while ( have_rows('company_opening_hours','company') ) : the_row();
 		$html .= '<p>'. get_sub_field('time') .'</p>';
   endwhile;
-	if($container == 'true') {
+	if($container === true) {
 		$html .= '</div>';
 	}
 
@@ -38,9 +38,9 @@ add_shortcode( 'opening-hours', 'company_opening_hours_func' );
 // EMAIL ADDRESS SHORTCODE
 function company_email_address_func( $atts ){
   $a = shortcode_atts( array(
-		'link'	=> 'false',
+		'link'	=> false,
 		'row'	=> '1',
-		'quick-link' => 'false',
+		'quick-link' => false,
 	), $atts );
 
 	$link = esc_attr($a['link']);
@@ -55,10 +55,10 @@ function company_email_address_func( $atts ){
 		$email = antispambot(get_sub_field('email_address'), 0);
 
 		if($row == $counter) {
-			if($quick == 'true') {
+			if($quick === true) {
 				$html .= '<a href="mailto:' . $email . '?subject='. $company .' (Website enquiry)" class="email-link">'. $email .'</a>';
 			} else {
-				if ($link == 'true'){
+				if ($link === true){
 					$html .= 'mailto:' . $email . '?subject='. $company .' (Website enquiry)';
 				} else {
 					$html .= $email;
@@ -75,9 +75,9 @@ add_shortcode( 'email', 'company_email_address_func' );
 // PHONE NUMBER SHORTCODE
 function company_phone_number_func( $atts ){
 	$a = shortcode_atts( array(
-		'link'	=> 'false',
+		'link'	=> false,
 		'row'	=> '1',
-		'quick-link' => 'false',
+		'quick-link' => false,
 	), $atts );
 
 	$link = esc_attr($a['link']);
@@ -100,10 +100,10 @@ function company_phone_number_func( $atts ){
 		}
 
 		if($row == $counter) {
-			if($quick == 'true') {
+			if($quick === true) {
 				$html .= '<a href="tel:' . $number_link . '" class="phone-link">'. $number .'</a>';
 			} else {
-				if ($link == 'true'){
+				if ($link === true){
 					$html .= 'tel:' . $number_link;
 				} else {
 					$html .= $number;
@@ -114,7 +114,7 @@ function company_phone_number_func( $atts ){
 
 	return $html;
 
-	if ($link == 'true'){
+	if ($link === true){
 		return $number_link;
 	} else {
 		return $number;
@@ -134,30 +134,52 @@ add_shortcode( 'fax', 'company_fax_number_func' );
 function company_address_func( $atts ){
 	$a = shortcode_atts( array(
 		'row'	=> '1',
-		'include-name' => 'false',
-		'container' => 'false',
+		'include-name' => false,
+		'container' => true,
+		'list' => true,
+		'line-break' => false,
 	), $atts );
 
 	$row = esc_attr($a['row']);
 	$name = esc_attr($a['include-name']);
 	$container = esc_attr($a['container']);
+	$list = esc_attr($a['list']);
+	$linebreak = esc_attr($a['line-break');
 	$counter = 0;
 	$html = '';
-	if($container == 'true') {
+	if($container === true) {
 		$html .= '<ul class="address-list">';
 	}
 	while ( have_rows('company_address', 'company') ) : the_row();
 		$counter++;
 		if($row == $counter) {
-			if($name == 'true') {
-				$html .= '<li class="address-item address-name">' . get_field('company_name', 'company') . '</li>';
+			if($name === true) {
+				if ($list === true) {
+					$html .= '<li class="address-item address-name">';
+				}
+				$html .= get_field('company_name', 'company');
+				if ($list === false && $linebreak === true) {
+					$html .= '<br />';
+				}
+				if ($list === true) {
+					$html .= '</li>';
+				}
 			}
 			while ( have_rows('address') ) : the_row();
-		    $html .= '<li class="address-item">' . get_sub_field('address_line') . '</li>';
+				if ($list === true) {
+					$html .= '<li class="address-item address-name">';
+				}
+		    $html .= get_sub_field('address_line');
+		    if ($list === false && $linebreak === true) {
+					$html .= '<br />';
+				}
+		    if ($list === true) {
+					$html .= '</li>';
+				}
 		  endwhile;
 		}
 	endwhile;
-	if($container == 'true') {
+	if($container === 'true') {
 		$html .= '</ul>';
 	}
 
@@ -170,11 +192,11 @@ add_shortcode( 'address', 'company_address_func' );
 // SOCIAL LINKS SHORTCODE
 function company_social_func( $atts ){
 	$a = shortcode_atts( array(
-		'container' => 'false',
+		'container' => false,
 	), $atts );
 	$container = esc_attr($a['container']);
 	$html = '';
-	if($container == 'true') {
+	if($container === true) {
 		$html .= '<div class="social-links">';
 	}
   while ( have_rows('social_links','company') ) : the_row();
@@ -189,7 +211,7 @@ function company_social_func( $atts ){
 			$html .= '<a href="'. $link .'" rel="nofollow" target="_blank">' . $icon . '</a>';
 		}
   endwhile;
-	if($container == 'true') {
+	if($container === true) {
 		$html .= '</div>';
 	}
 

@@ -35,7 +35,7 @@ __Shortcodes__
 - [Company Opening Hours](#company-opening-hours)
 
 ### Company Address
-Returns the __Company Address__ field. It returns each row in to a separate ```li``` tag.
+Returns the __Company Address__ field. By default it returns each row in to a separate ```li``` tag surrounded by a ```ul``` with the class of ```address-list```.
 ```php
 <?php echo do_shortcode('[address]'); ?>
 ```
@@ -44,7 +44,9 @@ Option | Type | Default | Description
 --- | --- | --- | ---
 row | int | 1 | Selects which repeater row phone number will be returned
 include-name | boolean | false | Will return the company name as the first ``` li ```
-container | boolean | false | Will wrap the returned list items in a ```ul``` with the class of ```address-list```
+container | boolean | true | Wraps the returned list items in a ```ul``` with the class of ```address-list```
+list | boolean | true | Wraps each list item in a ```li``` tag
+line-break | boolean | false | Will add a ```br /``` tag after the list item (applies when list option is false)
 
 ### Company Email Address
 Returns the __Company Email Address__ field in plaintext.
