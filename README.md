@@ -1,4 +1,5 @@
 
+
 # CleanBuild
 A clean WordPress boilerplate to make creating custom sites quicker & easier.
 
@@ -44,7 +45,7 @@ Option | Type | Default | Description
 --- | --- | --- | ---
 row | int | 1 | Selects which repeater row phone number will be returned
 include-name | boolean | false | Will return the company name as the first ``` li ```
-container | boolean | false | Will wrap the returned list items in a ```ul``` with the class of ```address-list```
+container | boolean | true | Will wrap the returned list items in a ```ul``` with the class of ```address-list```
 
 ### Company Email Address
 Returns the __Company Email Address__ field in plaintext.
@@ -78,7 +79,7 @@ Returns the __Company Social Links__ field. It returns each row in to a separate
 
 Option | Type | Default | Description
 --- | --- | --- | ---
-container | boolean | false | Will wrap the returned social links in a ```div``` with the class of ```social-links```
+container | boolean | true | Will wrap the returned social links in a ```div``` with the class of ```social-links```
 
 ### Company Name
 Returns the __Company Name__ field in plaintext.
@@ -99,7 +100,7 @@ Returns the __Company Reg Number__ field in plaintext.
 ```
 
 ### Company Opening Hours
-Returns the __Company Opening Hours__ field in plaintext.
+Returns each __Company Opening Hours__ row in to a ```p``` tag.
 ```php
 <?php echo do_shortcode('[opening-hours]'); ?>
 ```
@@ -107,3 +108,4 @@ Returns the __Company Opening Hours__ field in plaintext.
 Option | Type | Default | Description
 --- | --- | --- | ---
 container | boolean | false | Will wrap the returned opening times in a ```div``` with the class of ```opening-hours```
+single-line | boolean | false | Will return all rows in to a single ```p``` tag with a space on the end of each row
