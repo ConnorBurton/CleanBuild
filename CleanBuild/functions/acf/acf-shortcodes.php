@@ -15,7 +15,22 @@ add_shortcode( 'reg-number', 'company_reg_func' );
 
 // COMPANY OPENING HOURS SHORTCODE
 function company_opening_hours_func( $atts ){
-	return get_field('company_opening_hours', 'company');
+	$a = shortcode_atts( array(
+		'container' => 'false',
+	), $atts );
+	$container = esc_attr($a['container']);
+	$html = '';
+	if($container == 'true') {
+		$html .= '<div class="opening-hours">';
+	}
+  while ( have_rows('company_opening_hours','company') ) : the_row();
+		$html .= '<p>'. get_sub_field('time') .'</p>';
+  endwhile;
+	if($container == 'true') {
+		$html .= '</div>';
+	}
+
+  return $html;
 }
 add_shortcode( 'opening-hours', 'company_opening_hours_func' );
 

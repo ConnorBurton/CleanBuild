@@ -29,7 +29,23 @@
 
 		</div> <?php // closing #container ?>
 
+		<?php
+			if( wp_script_is( 'backstretch-script', 'enqueued' ) ) {
+				include 'inc/footer/backstretch-script.php';
+			}
+		?>
+
 		<?php wp_footer(); ?>
+
+		<?php
+			if( wp_script_is( 'gmap-link', 'enqueued' ) ) {
+				include 'inc/footer/map-script.php';
+			}
+
+			if(get_field('seasonal_opening_hours', 'seasonal')) {
+				include 'inc/footer/seasonal-opening-hours.php';
+			}
+		?>
 
 	</body>
 
