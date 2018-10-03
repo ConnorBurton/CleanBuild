@@ -62,6 +62,21 @@ add_filter('previous_post_link', 'post_link_attributes');
 // CUSTOM IMAGE SIZES
 add_image_size( 'small-on-page', 150, 60 );
 
+//REMOVE THE APPENDED WORDS IN FRONT OF CAT, TAG & AUTHOR TITLES
+function remove_static_title( $title ) {
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+		$title = single_tag_title( '', false );
+	} elseif ( is_archive() ) {
+		$title = single_tag_title( '', false );
+	} elseif ( is_author() ) {
+		$title = '<span class="vcard">' . get_the_author() . '</span>' ;
+	}
+	return $title;
+}
+add_filter( 'get_the_archive_title', 'remove_static_title' );
+
 
 // MOVE YOAST META BOX TO THE BOTTOM
 function yoasttobottom() {
