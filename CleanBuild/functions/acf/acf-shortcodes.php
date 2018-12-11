@@ -101,14 +101,19 @@ function company_phone_number_func( $atts ){
 	while ( have_rows('company_phone_number', 'company') ) : the_row();
 		$counter++;
 		$number = get_sub_field('phone_number');
+		if (get_sub_field('area_code')){
+			$areacode = get_sub_field('area_code');
+		} else {
+			$areacode = '+44';
+		}
 		$first_number = substr($number, 0, 1);
 		if($first_number == 0) {
 			$number_short = substr($number, 1);
 		  $number_space = str_replace(' ', '', $number_short);
-		  $number_link = '+44' . $number_space;
+		  $number_link = $areacode . $number_space;
 		} else {
 			$number_space = str_replace(' ', '', $number);
-			$number_link = '+44' . $number_space;
+			$number_link = $areacode . $number_space;
 		}
 
 		if($row == $counter) {

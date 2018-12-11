@@ -236,6 +236,25 @@ acf_add_local_field_group(array(
 			'button_label' => 'Add Phone Number',
 			'sub_fields' => array(
 				array(
+					'key' => 'field_5bb611f4e6a06',
+					'label' => 'Area Code',
+					'name' => 'area_code',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '20',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),
+				array(
 					'key' => 'field_5a5f6c316b5fe',
 					'label' => 'Phone Number',
 					'name' => 'phone_number',
@@ -244,7 +263,7 @@ acf_add_local_field_group(array(
 					'required' => 0,
 					'conditional_logic' => 0,
 					'wrapper' => array(
-						'width' => '',
+						'width' => '80',
 						'class' => '',
 						'id' => '',
 					),
