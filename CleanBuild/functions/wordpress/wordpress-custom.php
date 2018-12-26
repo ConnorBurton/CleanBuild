@@ -90,6 +90,7 @@ function has_children() {
 }
 
 // GUTENBERG BLOCKS WHITELIST
+add_filter( 'allowed_block_types', 'gutenbergBlockWhitelist' );
 function gutenbergBlockWhitelist( $allowed_block_types ) {
 
     return array(
