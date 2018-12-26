@@ -15,7 +15,34 @@ add_shortcode( 'reg-number', 'company_reg_func' );
 
 // COMPANY OPENING HOURS SHORTCODE
 function company_opening_hours_func( $atts ){
-	return get_field('company_opening_hours', 'company');
+	$a = shortcode_atts( array(
+		'container' => 'false',
+		'single-line' => 'false',
+	), $atts );
+	$container = esc_attr($a['container']);
+	$single_line = esc_attr($a['single-line']);
+	$html = '';
+	if($container == 'true') {
+		$html .= '<div class="opening-hours">';
+	}
+	if($single_line == 'true') {
+		$html .= '<p>';
+	}
+  while ( have_rows('company_opening_hours','company') ) : the_row();
+		if($single_line == 'true') {
+			$html .= get_sub_field('time') .' ';
+		} else {
+			$html .= '<p>'. get_sub_field('time') .'</p>';
+		}
+  endwhile;
+	if($single_line == 'true') {
+		$html .= '</p>';
+	}
+	if($container == 'true') {
+		$html .= '</div>';
+	}
+
+  return $html;
 }
 add_shortcode( 'opening-hours', 'company_opening_hours_func' );
 
@@ -120,7 +147,7 @@ function company_address_func( $atts ){
 	$a = shortcode_atts( array(
 		'row'	=> '1',
 		'include-name' => 'false',
-		'container' => 'false',
+		'container' => 'true',
 	), $atts );
 
 	$row = esc_attr($a['row']);
@@ -155,7 +182,7 @@ add_shortcode( 'address', 'company_address_func' );
 // SOCIAL LINKS SHORTCODE
 function company_social_func( $atts ){
 	$a = shortcode_atts( array(
-		'container' => 'false',
+		'container' => 'true',
 	), $atts );
 	$container = esc_attr($a['container']);
 	$html = '';

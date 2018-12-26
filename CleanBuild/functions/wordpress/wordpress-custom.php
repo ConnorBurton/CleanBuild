@@ -20,7 +20,6 @@ function cc_mime_types($mimes) {
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
-
 // DISABLE SRCSET ON EMBEDDED IMAGES
 function disable_srcset( $sources ) {
     return false;
@@ -71,13 +70,6 @@ function yoasttobottom() {
 add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
 
 
-// DISABLE SRCSET ON EMBEDDED IMAGES
-function cb_disable_srcset( $sources ) {
-  return false;
-}
-add_filter( 'wp_calculate_image_srcset', 'cb_disable_srcset' );
-
-
 // HAS CHILDREN FUNCTION
 function has_children() {
   global $post;
@@ -87,6 +79,20 @@ function has_children() {
   } else {
     return true;
   }
+}
+
+add_filter( 'plugin_action_links', 'disable_plugin_deactivation', 10, 4 );
+function disable_plugin_deactivation( $actions, $plugin_file, $plugin_data, $context ) {
+    // Remove edit link for all plugins
+    if ( array_key_exists( 'edit', $actions ) )
+        unset( $actions['edit'] );
+        // Remove deactivate link for important plugins
+        if ( array_key_exists( 'deactivate', $actions ) && in_array( $plugin_file, array(
+            'advanced-custom-fields-pro/acf.php',
+            // 'akismet/akismet.php'
+        )))
+    unset( $actions['deactivate'] );
+    return $actions;
 }
 
 // GUTENBERG BLOCKS WHITELIST

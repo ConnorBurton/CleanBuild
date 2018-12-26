@@ -6,8 +6,9 @@
 
 <?php get_header(); ?>
 
-<?php include 'inc/header/banner-default.php'; ?>
-
-<?php include 'inc/content/form-section.php'; ?>
+<?php
+  include 'inc/header/banner-default.php';
+  include 'inc/content/form-section.php';
+?>
 
 <?php get_footer(); ?>

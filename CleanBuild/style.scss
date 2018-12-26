@@ -30,7 +30,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   position: fixed;
   bottom: 30px;
   left: 30px;
-  z-index: 1;
+  z-index: 10;
   padding: 15px 25px;
   color: #fff;
   background: $col-grey;
@@ -357,6 +357,31 @@ span, i {
   }
 }
 
+// Banners
+.banner {
+  position: relative;
+  overflow: hidden;
+  .slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+  }
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.banner.default {
+  padding: 50px 0;
+  h1 {
+    margin: 0;
+  }
+}
+
 
 // Content
 .main-content {
@@ -432,6 +457,95 @@ a[href^="https://www.google.com/maps"] {
     }
     img {
       vertical-align: middle;
+    }
+  }
+}
+
+// Seasonal Opening Hours
+.seasonal-opening-hours {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: 15px 0;
+  background: $col-black;
+  p {
+    margin: 0;
+    font-size: 16px;
+    display: inline-block;
+    color: #fff;
+    line-height: 1;
+    margin-right: 15px;
+  }
+}
+
+// Cookie Policy
+#cookiePolicy {
+  transition: .3s ease;
+  &.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+  #closeCookie {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    font-size: 18px;
+    line-height: 40px;
+    width: 40px;
+    text-align: center;
+    transform: translateY(-50%);
+    background: #dcdcdc;
+    cursor: pointer;
+    transition: .3s ease;
+    &:hover {
+      background: #c9c5c5;
+    }
+  }
+  .cookie-content {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: #eee;
+    padding: 20px 70px 20px 30px;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+#cookieTableContainer {
+  overflow-x: scroll;
+  padding-left: 100px;
+}
+
+#cookieTable {
+  border-collapse: collapse;
+  margin: 10px 0 30px;
+  td,th {
+    border: 1px solid #d5d2d2;
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    color: $col-light-grey;
+  }
+  tr {
+    td,th {
+      &:nth-of-type(1) {
+        min-width: 125px;
+      }
+      &:nth-of-type(2) {
+        min-width: 200px;
+      }
+      &:nth-of-type(3) {
+        min-width: 80px;
+      }
+      &:nth-of-type(4) {
+        min-width: 300px;
+      }
     }
   }
 }
