@@ -89,4 +89,13 @@ function has_children() {
   }
 }
 
+// GUTENBERG BLOCKS WHITELIST
+function gutenbergBlockWhitelist( $allowed_block_types ) {
+
+    return array(
+        'core/freeform' // We're only allowing the Classic Editor
+    );
+
+}
+
 ?>
