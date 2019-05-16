@@ -519,7 +519,6 @@ a[href^="https://www.google.com/maps"] {
 
 #cookieTableContainer {
   overflow-x: scroll;
-  padding-left: 100px;
 }
 
 #cookieTable {
@@ -530,7 +529,6 @@ a[href^="https://www.google.com/maps"] {
     padding: 15px;
     text-align: center;
     vertical-align: middle;
-    color: $col-light-grey;
   }
   tr {
     td,th {

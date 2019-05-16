@@ -159,10 +159,6 @@ span.wpcf7-list-item {
 		.wpcf7-list-item-label {
 			display: block;
 	    position: relative;
-			border: 1px solid transparent;
-			border-bottom: 2px solid #859eb4;
-			background: #fcfcfc;
-			padding: 12px 20px;
 	    padding-left: 60px;
 			font-size: 14px;
 			&:before {
@@ -192,4 +188,33 @@ span.wpcf7-list-item {
 	    }
 	  }
 	}
+}
+
+
+.ajax-loader {
+	width: 12px;
+	height: 12px;
+	margin-left: 15px;
+  display: none;
+  &.is-active {
+    display: inline-block;
+  }
+}
+.ajax-loader:after {
+  content: " ";
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  border: 2px solid $col-black;
+  border-color: $col-black transparent $col-black transparent;
+  animation: dual-ring 1.5s linear infinite;
+}
+@keyframes dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
