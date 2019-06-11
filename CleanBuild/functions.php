@@ -11,16 +11,12 @@ require_once('functions/wordpress/site-dequeue.php');
 require_once('functions/wordpress/site-enqueue.php');
 
 // ACF FUNCTIONS
-require_once('functions/acf/acf-fields-company-details.php');
-require_once('functions/acf/acf-fields-custom-post-options.php');
-require_once('functions/acf/acf-fields-form-shortcode.php');
-require_once('functions/acf/acf-fields-testimonial-name.php');
-require_once('functions/acf/acf-fields-seasonal-opening-hours.php');
 require_once('functions/acf/acf-functions.php');
 require_once('functions/acf/acf-shortcodes.php');
 
 // CUSTOM FUNCTIONS
 require_once('functions/wordpress/wordpress-custom.php');
 require_once('functions/custom/svg-shortcode.php');
+require_once('functions/custom/structured-data.php');
 
 ?>

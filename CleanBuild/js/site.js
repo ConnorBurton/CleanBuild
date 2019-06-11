@@ -58,7 +58,7 @@ $(document).ready(function(){
   });
 
   // Updates the lazy load when a tab is clicked
-  $('.tabs-list li').click(function(){
+  $('.tab-list li').click(function(){
     siteLazyLoad.update();
   });
 
