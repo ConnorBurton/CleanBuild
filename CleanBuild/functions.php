@@ -17,5 +17,6 @@ require_once('functions/acf/acf-shortcodes.php');
 // CUSTOM FUNCTIONS
 require_once('functions/wordpress/wordpress-custom.php');
 require_once('functions/custom/svg-shortcode.php');
+require_once('functions/custom/structured-data.php');
 
 ?>
