@@ -44,15 +44,13 @@ function structured_data() {
   // Gets the first address row and automaticly sorts with the correct type
   while ( have_rows('company_address', 'company') ) : the_row();
     $address_count++;
-    if($address_count === 1) {
-      while ( have_rows('address') ) : the_row();
-        $address = get_sub_field('address_line');
-        $type = get_sub_field('type');
-        if($type) {
-          $address_line .= '"'. $type .'": "'. $address .'",';
-        }
-      endwhile;
-    }
+    while ( have_rows('address') ) : the_row();
+      $address = get_sub_field('address_line');
+      $type = get_sub_field('type');
+      if($type) {
+        $address_line .= '"'. $type .'": "'. $address .'",';
+      }
+    endwhile;
   endwhile;
 
   // Gets the social accounts
@@ -139,7 +137,14 @@ function structured_data() {
     $json .= ',';
     $json .= '{';
     $json .= '"@context": "https://schema.org",';
-    $json .= '"@type": "'. $blog_type .'",';
+
+    if($blog_type) {
+      $json .= '"@type": "'. $blog_type .'",';
+    } else {
+      $json .= '"@type": "Article",';
+    }
+
+
     $json .= '"headline": "'. $page_title .'",';
 
     $json .= '"author": {';
