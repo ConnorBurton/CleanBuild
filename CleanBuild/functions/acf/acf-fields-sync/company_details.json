@@ -66,7 +66,7 @@
             "label": "Company Address",
             "name": "company_address",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "Address 'Types' cannot be used on multiple address lines. Please add a new address if current addresses don't match the address type.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -480,6 +480,44 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_5d03924aa6a4f",
+            "label": "mnb",
+            "name": "mnb",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5d03926ddc030",
+            "label": "hgfvcdx",
+            "name": "hgfvcdx",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -499,5 +537,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1560171344
+    "modified": 1560515848
 }
