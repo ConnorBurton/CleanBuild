@@ -17,12 +17,6 @@ function structured_data() {
   // Gets the page title
   $page_title = get_the_title();
 
-  // Short product description
-  $short_prod_desc = get_field('short_product_description');
-
-  // Main product brand
-  $main_prod_brand = get_field('main_product_brand');
-
   // Gets the first phone number from company details
   while ( have_rows('company_phone_number', 'company') ) : the_row();
     $phone_count++;
@@ -123,36 +117,9 @@ function structured_data() {
   $json .= $social_links;
   $json .= ']';
 
-  $json .= '},';
+  $json .= '}';
 
   // CLOSING LOCAL BUSINESS STRUCTURED DATA
-
-  // OPENING PRODUCT STRUCTURED DATA
-
-  if(is_page_template('page-product.php')) {
-
-
-    $json .= '{';
-    $json .= '"@context": "http://schema.org",';
-    $json .= '"@type": "Product",';
-    $json .= '"name": "'. $page_title .'",';
-
-    if($featured_image)  { $json .= '"image": "' . $featured_image . '",'; }
-    if($short_prod_desc) { $json .= '"description": "'. $short_prod_desc .'",'; }
-
-    if($main_prod_brand) {
-      $json .= '"brand": {';
-      $json .= '"@type": "Thing",';
-      $json .= '"name": "'. $main_prod_brand .'"';
-      $json .= '}';
-    }
-
-    $json .= '}';
-
-  }
-
-  // CLOSING PRODUCT STRUCTURED DATA
-
 
   $json .= ']';
   //  END JSON
