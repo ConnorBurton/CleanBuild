@@ -137,7 +137,14 @@ function structured_data() {
     $json .= ',';
     $json .= '{';
     $json .= '"@context": "https://schema.org",';
-    $json .= '"@type": "'. $blog_type .'",';
+
+    if($blog_type) {
+      $json .= '"@type": "'. $blog_type .'",';
+    } else {
+      $json .= '"@type": "Article",';
+    }
+
+
     $json .= '"headline": "'. $page_title .'",';
 
     $json .= '"author": {';
