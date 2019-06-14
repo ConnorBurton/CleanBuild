@@ -14,8 +14,20 @@ function structured_data() {
   // Gets the page featured image
   $featured_image = get_the_post_thumbnail_url();
 
+  // Gets the publish date
+  $publish_date = get_the_date();
+
+  // Gets the modified date
+  $modified_date = get_the_modified_date();
+
   // Gets the page title
   $page_title = get_the_title();
+
+  // Gets the page url
+  $page_url = get_permalink();
+
+  // Gets the blog type
+  $blog_type = get_field('blog_type');
 
   // Gets the first phone number from company details
   while ( have_rows('company_phone_number', 'company') ) : the_row();
@@ -120,6 +132,39 @@ function structured_data() {
   $json .= '}';
 
   // CLOSING LOCAL BUSINESS STRUCTURED DATA
+
+
+  if(is_singular('post')) {
+
+    $json .= ',';
+    $json .= '{';
+    $json .= '"@context": "https://schema.org",';
+    $json .= '"@type": "'. $blog_type .'",';
+    $json .= '"headline": "'. $page_title .'",';
+
+    $json .= '"author": {';
+    $json .= '"@type": "Organization",';
+    $json .= '"name": "'. $name .'"';
+    $json .= '},';
+
+    $json .= '"publisher": {';
+    $json .= '"@type": "Organization",';
+    $json .= '"name": "'. $name .'",';
+    $json .= '"logo": "'. $logo .'"';
+    $json .= '},';
+
+    $json .= '"mainEntityOfPage": {';
+    $json .= '"@type": "WebPage",';
+    $json .= '"@id": "'. $page_url .'"';
+    $json .= '},';
+
+    $json .= '"dateModified": "'. $modified_date .'",';
+    $json .= '"datePublished": "'. $publish_date .'",';
+    if($featured_image) { $json .= '"image": ["' . $featured_image . '"]'; }
+    $json .= '}';
+
+  }
+
 
   $json .= ']';
   //  END JSON
