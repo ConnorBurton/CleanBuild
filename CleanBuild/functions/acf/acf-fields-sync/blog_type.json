@@ -1,0 +1,50 @@
+{
+    "key": "group_5d038ac55f30f",
+    "title": "Blog Type",
+    "fields": [
+        {
+            "key": "field_5d038ad1772d1",
+            "label": "Blog Type",
+            "name": "blog_type",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Article": "Article",
+                "NewsArticle": "News Article",
+                "BlogPosting": "Blog Post"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1560513299
+}
