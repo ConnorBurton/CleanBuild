@@ -95,5 +95,14 @@ function disable_plugin_deactivation( $actions, $plugin_file, $plugin_data, $con
     return $actions;
 }
 
+// GUTENBERG BLOCKS WHITELIST
+add_filter( 'allowed_block_types', 'gutenbergBlockWhitelist' );
+function gutenbergBlockWhitelist( $allowed_block_types ) {
+
+    return array(
+        'core/freeform' // We're only allowing the Classic Editor
+    );
+
+}
 
 ?>
