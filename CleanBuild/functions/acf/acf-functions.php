@@ -16,6 +16,13 @@ if( function_exists('acf_add_options_page') ) {
     'post_id' => 'company',
   );
 
+  $global_sections_args = array(
+    'page_title' => 'Global Sections',
+    'menu_title' => 'Global Sections',
+    'parent_slug' 	=> 'theme_options',
+    'post_id' => 'glboal',
+  );
+
   $footer_sections_args = array(
     'page_title' => 'Footer Sections',
     'menu_title' => 'Footer Sections',
@@ -38,7 +45,8 @@ if( function_exists('acf_add_options_page') ) {
   );
 
   acf_add_options_page($theme_options_args);
-  acf_add_options_page($company_details_args);
+  acf_add_options_sub_page($company_details_args);
+  acf_add_options_sub_page($global_sections_args);
   acf_add_options_sub_page($footer_sections_args);
   acf_add_options_sub_page($post_sections_args);
   acf_add_options_sub_page($seasonal_opening_hours_args);

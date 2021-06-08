@@ -3,12 +3,22 @@ $(document).ready(function(){
   // Run fancybox if it is added to the site
   if ( $.isFunction($.fn.fancybox) ) {
     $("a.fancybox").fancybox();
+
+    $(".fancybox-video").fancybox({
+      type: "iframe",
+      fitToView	: true,
+      autoSize	: false,
+      maxWidth	: 900,
+      maxHeight	: 700,
+      width		  : '70%',
+      height		: '70%',
+    });
   }
 
   // Mobile menu toggle code
   $('#mob-toggle, .darkness').click(function(){
     $('.darkness, .mobile-menu').toggleClass('active');
-    $('#mob-toggle .fa').toggleClass('fa-bars').toggleClass('fa-times');
+    $('#mob-toggle .far').toggleClass('fa-bars').toggleClass('fa-times');
   });
 
   // Mobile menu sub menu toggle

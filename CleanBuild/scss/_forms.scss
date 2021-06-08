@@ -39,7 +39,7 @@ input[type="text"],input[type="tel"],input[type="email"],select,textarea {
 		position: relative;
 		&:after {
 			content: '\f107';
-			font-family: 'FontAwesome';
+			font-family: 'Font Awesome 5 Pro';
 			position: absolute;
 			top: 50%;
 			right: 30px;
@@ -124,11 +124,16 @@ span.wpcf7-list-item {
 	background: $col-warning;
 	display: none;
 	margin-top: 20px;
-	&.wpcf7-validation-errors {
+	.invalid & {
 		background: $col-error;
+		display: block;
 	}
-	&.wpcf7-mail-sent-ok {
+	.sent & {
 		background: $col-success;
+		display: block;
+	}
+	.spam & {
+		display: block;
 	}
 }
 
@@ -163,7 +168,7 @@ span.wpcf7-list-item {
 			font-size: 14px;
 			&:before {
 				content: '';
-				font-family: 'FontAwesome';
+				font-family: 'Font Awesome 5 Pro';
 				display: block;
 				position: absolute;
 				top: 50%;
@@ -196,7 +201,7 @@ span.wpcf7-list-item {
 	height: 12px;
 	margin-left: 15px;
   display: none;
-  &.is-active {
+  .submitting & {
     display: inline-block;
   }
 }

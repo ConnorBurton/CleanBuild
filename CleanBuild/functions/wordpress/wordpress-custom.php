@@ -81,19 +81,10 @@ function has_children() {
   }
 }
 
-add_filter( 'plugin_action_links', 'disable_plugin_deactivation', 10, 4 );
-function disable_plugin_deactivation( $actions, $plugin_file, $plugin_data, $context ) {
-    // Remove edit link for all plugins
-    if ( array_key_exists( 'edit', $actions ) )
-        unset( $actions['edit'] );
-        // Remove deactivate link for important plugins
-        if ( array_key_exists( 'deactivate', $actions ) && in_array( $plugin_file, array(
-            'advanced-custom-fields-pro/acf.php',
-            // 'akismet/akismet.php'
-        )))
-    unset( $actions['deactivate'] );
-    return $actions;
+// Set locale to GB
+add_filter('locale', 'set_locale');
+function set_locale($locale) {
+  return 'en_GB';
 }
-
 
 ?>

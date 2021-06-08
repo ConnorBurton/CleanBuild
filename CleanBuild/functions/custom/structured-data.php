@@ -30,38 +30,48 @@ function structured_data() {
   $blog_type = get_field('blog_type');
 
   // Gets the first phone number from company details
-  while ( have_rows('company_phone_number', 'company') ) : the_row();
-    $phone_count++;
-    if($phone_count === 1) { $phone = get_sub_field('phone_number'); }
-  endwhile;
+  if(get_field('company_phone_number', 'company')) {
+    while ( have_rows('company_phone_number', 'company') ) : the_row();
+      $phone_count++;
+      if($phone_count === 1) { $phone = get_sub_field('phone_number'); }
+    endwhile;
+  }
 
   // Gets the first email address from company details
-  while ( have_rows('company_email_address', 'company') ) : the_row();
-    $email_count++;
-    if($email_count === 1) { $email = get_sub_field('email_address'); }
-  endwhile;
+  if(get_field('company_email_address', 'company')) {
+    while ( have_rows('company_email_address', 'company') ) : the_row();
+      $email_count++;
+      if($email_count === 1) { $email = get_sub_field('email_address'); }
+    endwhile;
+  }
+  
 
   // Gets the first address row and automaticly sorts with the correct type
-  while ( have_rows('company_address', 'company') ) : the_row();
-    $address_count++;
-    while ( have_rows('address') ) : the_row();
-      $address = get_sub_field('address_line');
-      $type = get_sub_field('type');
-      if($type) {
-        $address_line .= '"'. $type .'": "'. $address .'",';
-      }
+  if(get_field('company_address', 'company')) {
+    while ( have_rows('company_address', 'company') ) : the_row();
+      $address_count++;
+      while ( have_rows('address') ) : the_row();
+        $address = get_sub_field('address_line');
+        $type = get_sub_field('type');
+        if($type) {
+          $address_line .= '"'. $type .'": "'. $address .'",';
+        }
+      endwhile;
     endwhile;
-  endwhile;
+  }
+  
 
   // Gets the social accounts
-  $social_total = count(get_field('social_links', 'company'));
-  while ( have_rows('social_links', 'company') ) : the_row();
-    $social_count++;
-    $social_links .= '"'. get_sub_field('social_link') .'"';
-    if($social_total != $social_count) {
-      $social_links .= ',';
-    }
-  endwhile;
+  if(get_field('social_links', 'company')) {
+    $social_total = count(get_field('social_links', 'company'));
+    while ( have_rows('social_links', 'company') ) : the_row();
+      $social_count++;
+      $social_links .= '"'. get_sub_field('social_link') .'"';
+      if($social_total != $social_count) {
+        $social_links .= ',';
+      }
+    endwhile;
+  }
 
   // Gets the opening hours from company details
   if(get_field('company_opening_structured_data', 'company')) {
@@ -109,11 +119,13 @@ function structured_data() {
   if($email)          { $json .= '"email": "'. $email .'",'; }
   if($fax)            { $json .= '"faxNumber": "'. $fax .'",'; }
 
-  $json .= '"address": {';
-  $json .= '"@type": "PostalAddress",';
-  $json .= $address_line;
-  $json .= '"addressCountry": "UK"';
-  $json .= '},';
+  if($address_line) {
+    $json .= '"address": {';
+    $json .= '"@type": "PostalAddress",';
+    $json .= $address_line;
+    $json .= '"addressCountry": "UK"';
+    $json .= '},';
+  }
 
   if($opening_hours) {
     $json .= '"openingHoursSpecification": [';
@@ -123,9 +135,11 @@ function structured_data() {
 
   $json .= '"url" : "'. get_site_url() .'",';
 
-  $json .= '"sameAs": [';
-  $json .= $social_links;
-  $json .= ']';
+  if($social_links) {
+    $json .= '"sameAs": [';
+    $json .= $social_links;
+    $json .= ']';
+  }
 
   $json .= '}';
 
@@ -147,16 +161,18 @@ function structured_data() {
 
     $json .= '"headline": "'. $page_title .'",';
 
-    $json .= '"author": {';
-    $json .= '"@type": "Organization",';
-    $json .= '"name": "'. $name .'"';
-    $json .= '},';
+    if($name) {
+      $json .= '"author": {';
+      $json .= '"@type": "Organization",';
+      $json .= '"name": "'. $name .'"';
+      $json .= '},';
 
-    $json .= '"publisher": {';
-    $json .= '"@type": "Organization",';
-    $json .= '"name": "'. $name .'",';
-    $json .= '"logo": "'. $logo .'"';
-    $json .= '},';
+      $json .= '"publisher": {';
+      $json .= '"@type": "Organization",';
+      $json .= '"name": "'. $name .'",';
+      if($logo) { $json .= '"logo": "'. $logo .'"'; }
+      $json .= '},';
+    }
 
     $json .= '"mainEntityOfPage": {';
     $json .= '"@type": "WebPage",';

@@ -1,11 +1,5 @@
-<div class="fullwidth-content">
+<div class="fullwidth-content med-pad">
   <div class="container">
-    <?php
-      if ( have_posts() ) {
-        while ( have_posts() ) { the_post();
-          the_content();
-        }
-      }
-    ?>
+    <?php the_content(); ?>
   </div>
 </div>

@@ -4,7 +4,7 @@
 require_once('functions/wordpress/site-init.php');
 
 // CUSTOM POST TYPES
-require_once('functions/custom/cpt-testimonials.php');
+//require_once('functions/custom/cpt-testimonials.php');
 
 // STYLES / SCRIPTS
 require_once('functions/wordpress/site-dequeue.php');

@@ -19,7 +19,7 @@ Theses libraries are enqueued in ``` functions/wordpress/site-enqueue.php ``` bu
  * Slick.js
  * Backstretch
  * Fancybox
- * FontAwesome  4 (_Requires a CDN ID_)
+ * FontAwesome 5
 
 
 ## Company Detail Shortcodes

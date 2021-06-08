@@ -21,22 +21,22 @@
 		<div id="container">
 
 			<header class="main-header">
-				<div class="container table">
+				<div class="container flex a-center">
 
-					<div class="logo td vm">
+					<div class="logo">
 						<a href="/" title="Return to the homepage">
-							<img src="<?= get_stylesheet_directory_uri(); ?>/assets/graphics/logo.png" alt="Site Logo">
+							<img src="<?= get_stylesheet_directory_uri(); ?>/assets/svg/logo.svg" alt="Site Logo">
 						</a>
 					</div>
 
-					<div class="desk-menu td vm">
+					<div class="desk-menu">
 						<?php wp_nav_menu(array('menu' => 'Main Menu', 'container' => false)); ?>
 					</div>
 
-					<div class="mobile-buttons vm">
-						<a href="<?= do_shortcode('[phone link="true"]'); ?>" title="Call us today"><i class="fa fa-phone" aria-hidden="true"></i></a>
-						<a href="<?= do_shortcode('[email link="true"]'); ?>" title="Email us today"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-						<div id="mob-toggle"><i class="fa fa-bars" aria-hidden="true"></i></div>
+					<div class="mobile-buttons">
+						<a href="<?= do_shortcode('[phone link="true"]'); ?>" title="Call us today"><i class="fas fa-phone"></i></a>
+						<a href="<?= do_shortcode('[email link="true"]'); ?>" title="Email us today"><i class="fas fa-envelope"></i></a>
+						<div id="mob-toggle"><i class="far fa-bars"></i></div>
 					</div>
 
 				</div>

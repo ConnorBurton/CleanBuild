@@ -192,13 +192,19 @@ function company_social_func( $atts ){
   while ( have_rows('social_links','company') ) : the_row();
 		$link = get_sub_field('social_link');
 		$icon = get_sub_field('icon');
+		$title = get_sub_field('social_title');
+		if($title) {
+			$title = $title;
+		} else {
+			$title = 'Follow us';
+		}
 		$icon_type = substr($icon, 0, 3);
 		if($icon_type == 'fa-') {
-			$html .= '<a href="'. $link .'" rel="nofollow" target="_blank"><i class="fa ' . $icon . '" aria-hidden="true"></i></a>';
+			$html .= '<a href="'. $link .'" title="'. $title .'" rel="nofollow" target="_blank"><i class="fa ' . $icon . '" aria-hidden="true"></i></a>';
 		} else if($icon_type == 'htt' || $icon_type == '/wp') {
-			$html .= '<a href="'. $link .'" rel="nofollow" target="_blank"><img src="' . $icon . '"></a>';
+			$html .= '<a href="'. $link .'" title="'. $title .'" rel="nofollow" target="_blank"><img src="' . $icon . '"></a>';
 		} else {
-			$html .= '<a href="'. $link .'" rel="nofollow" target="_blank">' . $icon . '</a>';
+			$html .= '<a href="'. $link .'" title="'. $title .'" rel="nofollow" target="_blank">' . $icon . '</a>';
 		}
   endwhile;
 	if($container == 'true') {
