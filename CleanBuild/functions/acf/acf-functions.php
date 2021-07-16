@@ -20,7 +20,7 @@ if( function_exists('acf_add_options_page') ) {
     'page_title' => 'Global Sections',
     'menu_title' => 'Global Sections',
     'parent_slug' 	=> 'theme_options',
-    'post_id' => 'glboal',
+    'post_id' => 'global',
   );
 
   $footer_sections_args = array(
